@@ -6,7 +6,7 @@ services:
     image: ifpb/php:7.3-apache-pdo
     build: .
     networks:
-      - app-tier
+      - default
     ports:
       - 8080:8095
     volumes:
@@ -25,7 +25,7 @@ services:
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     networks:
-      - app-tier
+      - default
     ports:
       - 3306:3306
 
@@ -34,12 +34,12 @@ services:
     image: adminer:4.7.5
     restart: always
     networks:
-      - app-tier
+      - default
     ports:
       - 8081:8080
     depends_on:
       - mysql
 
 networks:
-  app-tier:
+  default:
     driver: bridge
