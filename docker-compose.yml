@@ -27,7 +27,7 @@ services:
     networks:
       - default
     ports:
-      - 3306:3306
+      - 3306:3308
 
   adminer:
     container_name: adminer
